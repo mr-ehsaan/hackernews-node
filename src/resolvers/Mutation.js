@@ -37,7 +37,6 @@ async function signup(parent, args, context, info) {
 }
 
 async function login(parent, args, context, info) {
-  // 1
   const user = await context.prisma.user.findUnique({
     where: { email: args.email },
   });
@@ -45,7 +44,6 @@ async function login(parent, args, context, info) {
     throw new Error("No such user found");
   }
 
-  // 2
   const valid = await bcrypt.compare(args.password, user.password);
   if (!valid) {
     throw new Error("Invalid password");
