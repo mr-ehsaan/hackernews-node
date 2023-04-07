@@ -8,6 +8,7 @@ const newLink = {
     return payload;
   },
 };
+
 function newVoteSubscribe(parent, args, context, info) {
   return context.pubsub.asyncIterator("NEW_VOTE");
 }

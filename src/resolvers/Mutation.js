@@ -53,7 +53,6 @@ async function login(parent, args, context, info) {
 
   const token = jwt.sign({ userId: user.id }, APP_SECRET);
 
-  // 3
   return {
     token,
     user,
@@ -61,10 +60,8 @@ async function login(parent, args, context, info) {
 }
 
 async function vote(parent, args, context, info) {
-  // 1
   const userId = context.userId;
 
-  // 2
   const vote = await context.prisma.vote.findUnique({
     where: {
       linkId_userId: {
@@ -78,7 +75,6 @@ async function vote(parent, args, context, info) {
     throw new Error(`Already voted for link: ${args.linkId}`);
   }
 
-  // 3
   const newVote = context.prisma.vote.create({
     data: {
       user: { connect: { id: userId } },
