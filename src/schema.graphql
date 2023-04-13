@@ -25,6 +25,7 @@ type Link {
   postedBy: User
   votes: [Vote!]!
 }
+
 type Vote {
   id: ID!
   link: Link!
