@@ -18,7 +18,6 @@ function getUserId(req, authToken) {
     }
   } else if (authToken) {
     const { userId } = getTokenPayload(authToken);
-
     return userId;
   }
 
