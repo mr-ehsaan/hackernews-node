@@ -79,6 +79,7 @@ async function vote(parent, args, context, info) {
       link: { connect: { id: Number(args.linkId) } },
     },
   });
+
   context.pubsub.publish("NEW_VOTE", newVote);
 
   return newVote;
