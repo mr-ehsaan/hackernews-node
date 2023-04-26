@@ -17,6 +17,7 @@ async function post(parent, args, context, info) {
   return newLink;
 }
 
+
 async function signup(parent, args, context, info) {
   // 1
   const password = await bcrypt.hash(args.password, 10);
